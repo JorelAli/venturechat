@@ -1,12 +1,12 @@
 #===============================================================
 #                     VentureChat Config                       =
-#                      Author: Aust1n46                        =                     
+#                      Author: Aust1n46                        =
 #===============================================================
 
 # - regex1,regex2
 # Simple regex tips: Use \b to "cut" a section of the word or phrase.  Example: \bass,donuts
-# Example filtered sentence: You are an ass.  Will become: You are an donuts.  
-# Example filtered sentence: You caught a bass.  Will stay: You caught a bass.  
+# Example filtered sentence: You are an ass.  Will become: You are an donuts.
+# Example filtered sentence: You caught a bass.  Will stay: You caught a bass.
 # Example filtered sentence: You are an asshole.  Will become: You are an donutshole.
 # Default filters by Jabelpeeps
 filters:
@@ -40,7 +40,7 @@ blockablecommands:
 - vote
 - me
 
-# blacklisted nicknames 
+# blacklisted nicknames
 nicknames:
 - Notch
 
@@ -48,20 +48,20 @@ nickname-in-tablist: true
 
 commandspy:
   worldeditcommands: true
-  
+
 antispam:
   enabled: true
-  
+
   # number of messages to be spam
   spamnumber: 5
-  
+
   # amount of time in seconds for it to be spam
   spamtime: 10
-  
+
   # amount of time in minutes for the mute to last, use 0 for untimed mute
   mutetime: 10
- 
-# Logging chat and commands to a mysql database 
+
+# Logging chat and commands to a mysql database
 mysql:
   enabled: false
   user: User
@@ -167,11 +167,11 @@ jsonformatting:
     - '&dI am Owner suffix!'
     click_suffix: 'suggest_command'
     click_suffix_text: '/msg {player_name}'
-    
+
 # The icon is the block shown in the GUI
 # The text is the display name of the block icon
-# Include a slash (/) before the command   
-# Permissions are the name of the button and automatically include "venturechat." 
+# Include a slash (/) before the command
+# Permissions are the name of the button and automatically include "venturechat."
 # Example: mute equals venturechat.mute
 venturegui:
   mute:
@@ -195,7 +195,7 @@ venturegui:
     permission: 'removemessage'
     command: '/removemessage {hash} true'
     slot: 7
-    
+
 guiicon: '&c [✓]'
 guitext: '&cOpen Moderation GUI'
 guirows: 1
@@ -208,17 +208,17 @@ broadcast:
   color: red
   permissions: venturechat.adminchannel
   displaytag: '[Broadcast]'
-  
-# Use $ to include arguments into the message  
+
+# Use $ to include arguments into the message
 # Valid component types are:
 # Command: Sends a message or command in chat
 # Message: Sends a message to the player
 # Broadcast: Sends a broadcast to all players on the server
-# Permissions automatically include "venturechat." 
+# Permissions automatically include "venturechat."
 # Example: permissions: alert equals venturechat.alert
 # Use None for no permissions
 # The number of arguments is the minimum number of required arguments, use 0 for no required arguments
-alias:  
+alias:
   vote:
     arguments: 0
     permissions: None
@@ -259,18 +259,18 @@ alias:
     arguments: 0
     permissions: None
     components:
-    - 'Command: /vwhisper$' 
+    - 'Command: /vwhisper$'
   msg:
     arguments: 0
     permissions: None
     components:
-    - 'Command: /vmessage$' 
+    - 'Command: /vmessage$'
   message:
     arguments: 0
     permissions: None
     components:
     - 'Command: /vmessage$'
-    
+
 # Valid modes are:
 # * Everyone
 # v Voice and up
@@ -310,11 +310,11 @@ irc:
 # bungeecord overrides distance
 # channel permissions are configurable
 # channels can be changed, and new channels can be created
-# Permissions automatically include "venturechat." 
+# Permissions automatically include "venturechat."
 # Example: permissions: staff equals venturechat.staff
 # Use None for no permissions
 
-# Legacy Placeholders:  
+# Legacy Placeholders:
 # Use PlaceholderAPI
 # {name} : player name
 # {nickname} : player nickname or name if they have no nickname

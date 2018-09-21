@@ -25,11 +25,11 @@ public class RangedSpy extends MineverseCommand {
 		}
 		MineverseChatPlayer mcp = MineverseChatAPI.getMineverseChatPlayer((Player) sender);
 		if(mcp.getPlayer().hasPermission("venturechat.rangedspy")) {
-			if(!mcp.getRangedSpy()) {				
+			if(!mcp.getRangedSpy()) {
 				mcp.setRangedSpy(true);
 				mcp.getPlayer().sendMessage(ChatColor.GOLD + "You are now spying on ranged channels.");
 				return;
-			}			
+			}
 			mcp.setRangedSpy(false);
 			mcp.getPlayer().sendMessage(ChatColor.GOLD + "You are no longer spying on ranged channels.");
 			return;

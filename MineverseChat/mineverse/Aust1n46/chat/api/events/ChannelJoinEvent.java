@@ -16,19 +16,19 @@ public class ChannelJoinEvent extends Event implements Cancellable {
 	private Player player;
 	private ChatChannel channel;
 	private String message;
-	
+
 	public ChannelJoinEvent(Player player, ChatChannel channel, String message) {
 		this.player = player;
 		this.channel = channel;
 		this.message = message;
 		this.cancelled = false;
 	}
-	 
+
 	@Override
 	public HandlerList getHandlers() {
 	    return handlers;
 	}
-	 
+
 	public static HandlerList getHandlerList() {
 	    return handlers;
 	}
@@ -42,23 +42,23 @@ public class ChannelJoinEvent extends Event implements Cancellable {
 	public void setCancelled(boolean cancel) {
 		this.cancelled = cancel;
 	}
-	
+
 	public Player getPlayer() {
 		return this.player;
 	}
-	
+
 	public void setChannel(ChatChannel channel) {
 		this.channel = channel;
 	}
-	
+
 	public ChatChannel getChannel() {
 		return this.channel;
 	}
-	
+
 	public String getMessage() {
 		return this.message;
 	}
-	
+
 	public void setMessage(String message) {
 		this.message = message;
 	}

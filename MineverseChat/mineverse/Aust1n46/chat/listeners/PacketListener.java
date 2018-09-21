@@ -26,7 +26,7 @@ import com.comphenix.protocol.wrappers.WrappedChatComponent;
 import me.clip.placeholderapi.PlaceholderAPI;
 
 //This class listens for chat packets and intercepts them before they are sent to the Player.
-//The packets are modified to include advanced json formating and the message remover button if the 
+//The packets are modified to include advanced json formating and the message remover button if the
 //player has permission to remove messages.
 public class PacketListener extends PacketAdapter {
 	public PacketListener(MineverseChat plugin) {
@@ -39,7 +39,7 @@ public class PacketListener extends PacketAdapter {
 		if(event.isCancelled() || event.getPacketType() != PacketType.Play.Server.CHAT) {
 			return;
 		}
-		
+
 		StructureModifier<WrappedChatComponent> chatP = event.getPacket().getChatComponents();
 		WrappedChatComponent c = chatP.read(0);
 		if (c == null) {
@@ -57,18 +57,18 @@ public class PacketListener extends PacketAdapter {
 			}
 			msg = PlaceholderAPI.setBracketPlaceholders(event.getPlayer(), msg);
 			modifier.write(0, ComponentSerializer.parse(msg));
-			return;	
-		}	
-		String msg = c.getJson();	
+			return;
+		}
+		String msg = c.getJson();
 		if (msg == null) {
 			return;
-		}	
+		}
 		if (!PlaceholderAPI.getBracketPlaceholderPattern().matcher(msg).find()) {
 			return;
 		}
 		msg = PlaceholderAPI.setBracketPlaceholders(event.getPlayer(), msg);
 		chatP.write(0, WrappedChatComponent.fromJson(msg));
-		
+
 		try {
 			if(VersionHandler.is1_7_10() || VersionHandler.is1_7_9() || VersionHandler.is1_7_2()) {
 				if((MineverseChat.posField != null) && !(((boolean) MineverseChat.posField.get(event.getPacket().getHandle())))) {

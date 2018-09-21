@@ -14,7 +14,7 @@ public class ChatMessageEvent extends Event {
 	private static final HandlerList handlers = new HandlerList();
 	private final ChatMessage chatMessage;
 	private final String json;
-	
+
 	public ChatMessageEvent(ChatMessage chatMessage, String json) {
 		this.chatMessage = chatMessage;
 		this.json = json;
@@ -23,16 +23,16 @@ public class ChatMessageEvent extends Event {
 	public ChatMessage getChatMessage() {
 		return this.chatMessage;
 	}
-	
+
 	public String getJson() {
 		return this.json;
 	}
-	
+
 	@Override
 	public HandlerList getHandlers() {
 	    return handlers;
 	}
-	 
+
 	public static HandlerList getHandlerList() {
 	    return handlers;
 	}

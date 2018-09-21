@@ -21,20 +21,20 @@ public class PlayerData {
 	private static FileConfiguration playerData;
 	private static File playerDataFile;
 	private static MineverseChat plugin;
-	
+
 	public static void initialize() {
 		plugin = MineverseChat.getInstance();
 		playerDataFile = new File(plugin.getDataFolder().getAbsolutePath(), "Players.yml");
 		if(!playerDataFile.isFile()) {
-			plugin.saveResource("Players.yml", true);		
+			plugin.saveResource("Players.yml", true);
 		}
 		playerData = YamlConfiguration.loadConfiguration(playerDataFile);
 	}
-	
-	public static FileConfiguration getPlayerData() {		
+
+	public static FileConfiguration getPlayerData() {
 		return playerData;
 	}
-	
+
 	public static void savePlayerData() {
 		try {
 			List<String> mapmail = new ArrayList<String>(plugin.mail.keySet());
@@ -48,8 +48,8 @@ public class PlayerData {
 					mail += s + "\n";
 				}
 				cs.set("mail", mail);
-				plugin.mail.remove(mapmail.get(a));			
-			}	
+				plugin.mail.remove(mapmail.get(a));
+			}
 			for(MineverseChatPlayer p : MineverseChat.players) {
 				if(p.wasModified() || p.isOnline()) {
 					ConfigurationSection cs = playerData.getConfigurationSection("players." + p.getUUID().toString());
@@ -74,7 +74,7 @@ public class PlayerData {
 						listening += c.getName() + ",";
 					}
 					String mutes = "";
-					for(String channel : p.getMutes().keySet()) {		
+					for(String channel : p.getMutes().keySet()) {
 						ChatChannel c = MineverseChat.ccInfo.getChannelInfo(channel);
 						mutes += c.getName() + ":" + p.getMutes().get(c.getName()) + ",";
 					}
@@ -119,7 +119,7 @@ public class PlayerData {
 			}
 			playerData.save(playerDataFile);
 		}
-		catch(IOException e) {			
+		catch(IOException e) {
 			e.printStackTrace();
 		}
 	}

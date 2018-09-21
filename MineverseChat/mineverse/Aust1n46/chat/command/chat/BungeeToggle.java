@@ -25,12 +25,12 @@ public class BungeeToggle extends MineverseCommand {
 		}
 		MineverseChatPlayer mcp = MineverseChatAPI.getMineverseChatPlayer((Player) sender);
 		if(mcp.getPlayer().hasPermission("venturechat.bungeetoggle")) {
-			if(!mcp.getBungeeToggle()) {				
+			if(!mcp.getBungeeToggle()) {
 				mcp.setBungeeToggle(true);
 				mcp.getPlayer().sendMessage(ChatColor.GOLD + "You are now receiving BungeeCord chat.");
 				MineverseChat.getInstance().synchronize(mcp, true);
 				return;
-			}			
+			}
 			mcp.setBungeeToggle(false);
 			mcp.getPlayer().sendMessage(ChatColor.GOLD + "You are now blocking BungeeCord chat.");
 			MineverseChat.getInstance().synchronize(mcp, true);

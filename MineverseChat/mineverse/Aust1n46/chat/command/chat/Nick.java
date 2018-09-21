@@ -89,7 +89,7 @@ public class Nick extends MineverseCommand {
 								return;
 							}
 						}
-					}				
+					}
 					player.setNickname(args[1]);
 					sender.sendMessage(ChatColor.GOLD + "Set " + ChatColor.RED + player.getName() + ChatColor.GOLD + "'s nickname to " + Format.FormatStringAll(args[1]));
 					if(player.isOnline()) {

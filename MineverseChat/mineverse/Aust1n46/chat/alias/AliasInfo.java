@@ -33,7 +33,7 @@ public class AliasInfo {
 
 	public Alias getAliasInfo(String name) {
 		for(Alias a : aa) {
-			if(a.getName().equalsIgnoreCase(name)) 
+			if(a.getName().equalsIgnoreCase(name))
 				return a;
 		}
 		return null;

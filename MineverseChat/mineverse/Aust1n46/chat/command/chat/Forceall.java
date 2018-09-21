@@ -21,11 +21,11 @@ public class Forceall extends MineverseCommand {
 				return;
 			}
 			String forcemsg = "";
-			for(int x = 0; x < args.length; x++) 
-				if(args[x].length() > 0) 
+			for(int x = 0; x < args.length; x++)
+				if(args[x].length() > 0)
 					forcemsg += args[x] + " ";
 			sender.sendMessage(ChatColor.GOLD + "Forcing all players to run: " + ChatColor.RED + forcemsg);
-			for(MineverseChatPlayer player : MineverseChat.players) 
+			for(MineverseChatPlayer player : MineverseChat.players)
 				if(player.isOnline())
 					player.getPlayer().chat(forcemsg);
 			return;

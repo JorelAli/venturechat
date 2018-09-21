@@ -47,7 +47,7 @@ public class Setchannelall extends MineverseCommand {
 				}
 			}
 			sender.sendMessage(ChatColor.GOLD + "Set player " + ChatColor.RED + args[0] + ChatColor.GOLD + " into all channels.");
-			if(player.isOnline()) 
+			if(player.isOnline())
 				player.getPlayer().sendMessage(ChatColor.RED + "You have been set into all channels.");
 			else
 				player.setModified(true);

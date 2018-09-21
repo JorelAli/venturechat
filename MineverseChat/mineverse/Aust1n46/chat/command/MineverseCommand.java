@@ -5,7 +5,7 @@ import org.bukkit.command.CommandSender;
 //This class is the parent class of all of the plugins commands.  The execute method runs the command.
 public abstract class MineverseCommand {
 	protected String name;
-	
+
 	protected MineverseCommand() {}
 
 	protected MineverseCommand(String name) {

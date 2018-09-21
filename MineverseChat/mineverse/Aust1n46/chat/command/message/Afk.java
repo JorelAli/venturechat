@@ -28,7 +28,7 @@ public class Afk extends MineverseCommand {
 		if(args.length >= 0) {
 			if(!mcp.isAFK()) {
 				mcp.setAFK(true);
-				mcp.getPlayer().sendMessage(ChatColor.GOLD + "You are now AFK.");				
+				mcp.getPlayer().sendMessage(ChatColor.GOLD + "You are now AFK.");
 				if(plugin.getConfig().getBoolean("broadcastafk")) {
 					for(MineverseChatPlayer p : MineverseChat.players) {
 						if(p.isOnline() && !p.getName().equals(mcp.getName())) {

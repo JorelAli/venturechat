@@ -95,7 +95,7 @@ public class Removemessage extends MineverseCommand {
 							}
 						}
 						/*if(message.getMessage().contains(Format.FormatStringAll(plugin.getConfig().getString("messageremovericon")))) {
-							String submessage = message.getMessage().substring(0, message.getMessage().length() - plugin.getConfig().getString("messageremovericon").length() - 1).replaceAll("(ง([a-z0-9]))", "");
+							String submessage = message.getMessage().substring(0, message.getMessage().length() - plugin.getConfig().getString("messageremovericon").length() - 1).replaceAll("(ยง([a-z0-9]))", "");
 							if(submessage.hashCode() == hash) {
 								WrappedChatComponent removedComponent = p.getPlayer().hasPermission("venturechat.message.bypass") ? Removemessage.this.getMessageDeletedChatComponentAdmin(message) : Removemessage.this.getMessageDeletedChatComponentPlayer();
 								message.setComponent(removedComponent);
@@ -110,7 +110,7 @@ public class Removemessage extends MineverseCommand {
 									cut += b.getIcon().length() - 1;
 								}
 							}
-							submessage = submessage.substring(0, submessage.length() - cut).replaceAll("(ง([a-z0-9]))", "");
+							submessage = submessage.substring(0, submessage.length() - cut).replaceAll("(ยง([a-z0-9]))", "");
 							//System.out.println(submessage + " submess");
 							if(submessage.hashCode() == hash) {
 								WrappedChatComponent removedComponent = p.getPlayer().hasPermission("venturechat.message.bypass") ? Removemessage.this.getMessageDeletedChatComponentAdmin(message) : Removemessage.this.getMessageDeletedChatComponentPlayer();
@@ -127,7 +127,7 @@ public class Removemessage extends MineverseCommand {
 								cut += b.getIcon().length() - 1;
 							}
 						}
-						String submessage = message.getMessage().replaceAll("(ง([a-z0-9]))", "");
+						String submessage = message.getMessage().replaceAll("(ยง([a-z0-9]))", "");
 						//System.out.println(submessage + " " + submessage.length());
 						submessage = submessage.substring(0, submessage.length() - cut);
 						//System.out.println(submessage);

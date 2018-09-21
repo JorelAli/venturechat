@@ -33,14 +33,14 @@ public class Kickchannel extends MineverseCommand {
 			if(channel == null) {
 				sender.sendMessage(ChatColor.RED + "Invalid channel: " + args[1]);
 				return;
-			}			
+			}
 			sender.sendMessage(ChatColor.GOLD + "Kicked player " + ChatColor.RED + args[0] + ChatColor.GOLD + " from channel: " + ChatColor.valueOf(channel.getColor().toUpperCase()) + channel.getName());
 			String format = ChatColor.valueOf(channel.getColor().toUpperCase()) + "[" + channel.getName() + "] " + ChatColor.valueOf(channel.getColor().toUpperCase());
 			player.removeListening(channel.getName());
 			if(player.isOnline()) {
 				player.getPlayer().sendMessage("Leaving Channel: " + format);
 			}
-			else 
+			else
 				player.setModified(true);
 			if(player.getListening().size() == 0) {
 				player.setCurrentChannel(cc.getDefaultChannel());
@@ -48,7 +48,7 @@ public class Kickchannel extends MineverseCommand {
 					player.getPlayer().sendMessage(ChatColor.RED + "You need to be listening on at least one channel, setting you into the default channel.");
 					player.getPlayer().sendMessage("Channel Set: " + ChatColor.valueOf(cc.defaultColor.toUpperCase()) + "[" + cc.getDefaultChannel().getName() + "]");
 				}
-				else 
+				else
 					player.setModified(true);
 			}
 			return;

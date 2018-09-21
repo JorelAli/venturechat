@@ -76,7 +76,7 @@ public class Ignore extends MineverseCommand {
 				e.printStackTrace();
 			}
 			return;
-		}		
+		}
 		if(!player.isOnline()) {
 			mcp.getPlayer().sendMessage(ChatColor.RED + "Player: " + ChatColor.GOLD + player.getName() + ChatColor.RED + " is not online.");
 			return;

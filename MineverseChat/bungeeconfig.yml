@@ -1,12 +1,12 @@
 #===============================================================
 #                     MineverseChat Config                     =
-#                      Author: Aust1n46                        =                     
+#                      Author: Aust1n46                        =
 #===============================================================
 
 # - regex1,regex2
 # Simple regex tips: Use \b to "cut" a section of the word or phrase.  Example: \bass,donuts
-# Example filtered sentence: You are an ass.  Will become: You are an donuts.  
-# Example filtered sentence: You caught a bass.  Will stay: You caught a bass.  
+# Example filtered sentence: You are an ass.  Will become: You are an donuts.
+# Example filtered sentence: You caught a bass.  Will stay: You caught a bass.
 # Example filtered sentence: You are an asshole.  Will become: You are an donutshole.
 # Default filters by Jabelpeeps
 filters:
@@ -47,7 +47,7 @@ replyformatspy: Default
 
 tellcolor: white
 
-# enable bungeecord messaging 
+# enable bungeecord messaging
 messaging: true
 # enable bungeecord muting
 muting: true

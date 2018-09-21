@@ -111,7 +111,7 @@ public class MineverseChatBungee extends Plugin implements Listener {
 			for(String s : p.getMutes().keySet())
 				mute += s + ":0,";
 			String ignore = "";
-			for(UUID s : p.getIgnores()) 
+			for(UUID s : p.getIgnores())
 				ignore += s.toString() + ",";
 			if(listen.length() > 0)
 				listen = listen.substring(0, listen.length() - 1);
@@ -226,7 +226,7 @@ public class MineverseChatBungee extends Plugin implements Listener {
 						if(getProxy().getServers().get(server).getPlayers().size() > 0) {
 							getProxy().getServers().get(server).sendData("venturechat:", outstream.toByteArray());
 						}
-					}	
+					}
 				}
 				if(identifier.equals("Echo")) {
 					String server = in.readUTF();
@@ -289,7 +289,7 @@ public class MineverseChatBungee extends Plugin implements Listener {
 						if(getProxy().getServers().get(server).getPlayers().size() > 0) {
 							getProxy().getServers().get(server).sendData("venturechat:", outstream.toByteArray());
 						}
-					}	
+					}
 				}
 				if(identifier.equals("Ignore")) {
 					String server = in.readUTF();
@@ -383,7 +383,7 @@ public class MineverseChatBungee extends Plugin implements Listener {
 					for(UUID ignore : smcp.getIgnores()) {
 						out.writeUTF(ignore.toString());
 					}
-					if(getProxy().getServers().get(server).getPlayers().size() > 0) 
+					if(getProxy().getServers().get(server).getPlayers().size() > 0)
 						getProxy().getServers().get(server).sendData("venturechat:", outstream.toByteArray());
 				}
 				if(identifier.equals("Update")) {
@@ -392,7 +392,7 @@ public class MineverseChatBungee extends Plugin implements Listener {
 					if(smcp == null) {
 						smcp = new SynchronizedMineverseChatPlayer(uuid, new HashSet<String>(), new HashMap<String, Integer>(), new HashSet<UUID>(), false, true);
 						players.add(smcp);
-					}		
+					}
 					smcp.getListening().clear();
 					smcp.getMutes().clear();
 					smcp.getIgnores().clear();
@@ -424,7 +424,7 @@ public class MineverseChatBungee extends Plugin implements Listener {
 					for(String s : networkPlayers.keySet()) {
 						out.writeUTF(s + "," + networkPlayers.get(s));
 					}
-					if(getProxy().getServers().get(server).getPlayers().size() > 0) 
+					if(getProxy().getServers().get(server).getPlayers().size() > 0)
 						getProxy().getServers().get(server).sendData("venturechat:", outstream.toByteArray());
 				}
 				if(identifier.equals("PlayersUpdate")) {
@@ -442,7 +442,7 @@ public class MineverseChatBungee extends Plugin implements Listener {
 						out.writeUTF(s + "," + networkPlayers.get(s));
 					}
 					for(String send : getProxy().getServers().keySet()) {
-						if(getProxy().getServers().get(send).getPlayers().size() > 0) 
+						if(getProxy().getServers().get(send).getPlayers().size() > 0)
 							getProxy().getServers().get(send).sendData("venturechat:", outstream.toByteArray());
 					}
 				}

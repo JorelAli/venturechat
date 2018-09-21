@@ -25,12 +25,12 @@ public class MessageToggle extends MineverseCommand {
 		}
 		MineverseChatPlayer mcp = MineverseChatAPI.getMineverseChatPlayer((Player) sender);
 		if(mcp.getPlayer().hasPermission("venturechat.messagetoggle")) {
-			if(!mcp.getMessageToggle()) {				
+			if(!mcp.getMessageToggle()) {
 				mcp.setMessageToggle(true);
 				mcp.getPlayer().sendMessage(ChatColor.GOLD + "You are now receiving messages.");
 				MineverseChat.getInstance().synchronize(mcp, true);
 				return;
-			}			
+			}
 			mcp.setMessageToggle(false);
 			mcp.getPlayer().sendMessage(ChatColor.GOLD + "You are now blocking messages.");
 			MineverseChat.getInstance().synchronize(mcp, true);

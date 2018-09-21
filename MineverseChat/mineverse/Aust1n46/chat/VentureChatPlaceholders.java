@@ -47,7 +47,7 @@ public class VentureChatPlaceholders extends PlaceholderHook {
 		}
 		return null;
 	}
-	
+
 	private String textToHex(String color) {
 		if(color.equalsIgnoreCase("black")) return "0";
 		if(color.equalsIgnoreCase("dark_blue")) return "1";

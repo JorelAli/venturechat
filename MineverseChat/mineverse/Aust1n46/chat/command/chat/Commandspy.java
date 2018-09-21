@@ -25,11 +25,11 @@ public class Commandspy extends MineverseCommand {
 		}
 		MineverseChatPlayer mcp = MineverseChatAPI.getMineverseChatPlayer((Player) sender);
 		if(mcp.getPlayer().hasPermission("venturechat.commandspy")) {
-			if(!mcp.hasCommandSpy()) {				
+			if(!mcp.hasCommandSpy()) {
 				mcp.setCommandSpy(true);
 				mcp.getPlayer().sendMessage(ChatColor.GOLD + "You are now spying on commands.");
 				return;
-			}		
+			}
 			mcp.setCommandSpy(false);
 			mcp.getPlayer().sendMessage(ChatColor.GOLD + "You are no longer spying on commands.");
 			return;

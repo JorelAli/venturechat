@@ -14,19 +14,19 @@ public class MutePlayerEvent extends Event implements Cancellable {	//unimplemen
 	private Player player;
 	private ChatChannel channel;
 	private int time;
-	
+
 	public MutePlayerEvent(Player player, ChatChannel channel, int time) {
 		this.player = player;
 		this.channel = channel;
 		this.time = time;
 		this.cancelled = false;
 	}
-	
+
 	@Override
 	public HandlerList getHandlers() {
 	    return handlers;
 	}
-	 
+
 	public static HandlerList getHandlerList() {
 	    return handlers;
 	}
@@ -40,23 +40,23 @@ public class MutePlayerEvent extends Event implements Cancellable {	//unimplemen
 	public void setCancelled(boolean cancel) {
 		this.cancelled = cancel;
 	}
-	
+
 	public Player getPlayer() {
 		return this.player;
 	}
-	
+
 	public void setChannel(ChatChannel channel) {
 		this.channel = channel;
 	}
-	
+
 	public ChatChannel getChannel() {
 		return this.channel;
 	}
-	
+
 	public int getTime() {
 		return this.time;
 	}
-	
+
 	public void setTime(int time) {
 		this.time = time;
 	}

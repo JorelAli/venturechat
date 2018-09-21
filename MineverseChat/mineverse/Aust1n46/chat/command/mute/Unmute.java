@@ -35,7 +35,7 @@ public class Unmute extends MineverseCommand {
 						sender.sendMessage(ChatColor.GOLD + player.getName() + ChatColor.RED + " is not muted in channel: " + ChatColor.valueOf(channel.getColor().toUpperCase()) + channel.getName());
 						return;
 					}
-					player.removeMute(channel.getName());					
+					player.removeMute(channel.getName());
 					sender.sendMessage(ChatColor.RED + "Unmuted player " + ChatColor.GOLD + player.getName() + ChatColor.RED + " in: " + ChatColor.valueOf(channel.getColor().toUpperCase()) + channel.getName());
 					if(player.isOnline()) {
 						player.getPlayer().sendMessage(ChatColor.RED + "You have just been unmuted in: " + ChatColor.valueOf(channel.getColor().toUpperCase()) + channel.getName());
@@ -47,7 +47,7 @@ public class Unmute extends MineverseCommand {
 						MineverseChat.getInstance().synchronize(player, true);
 					}
 					return;
-				}				
+				}
 			}
 			sender.sendMessage(ChatColor.RED + "Invalid channel: " + args[1]);
 			return;

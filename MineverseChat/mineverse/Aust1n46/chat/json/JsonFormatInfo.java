@@ -9,7 +9,7 @@ import mineverse.Aust1n46.chat.MineverseChat;
 //This class stores JsonFormat objects in an array and the constructor creates them by reading in data from the config file.
 public class JsonFormatInfo {
 	private JsonFormat[] jf;
-	
+
 	public JsonFormatInfo(MineverseChat plugin) {
 		String name;
 		int priority = 0;
@@ -41,11 +41,11 @@ public class JsonFormatInfo {
 			jf[x ++] = j;
 		}
 	}
-	
+
 	public JsonFormat[] getJsonFormats() {
 		return this.jf;
 	}
-	
+
 	public JsonFormat getJsonFormat(String name) {
 		for(JsonFormat j : this.jf) {
 			if(j.getName().equalsIgnoreCase(name))

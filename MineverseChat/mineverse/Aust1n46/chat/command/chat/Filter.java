@@ -29,7 +29,7 @@ public class Filter extends MineverseCommand {
 				mcp.setFilter(true);
 				mcp.getPlayer().sendMessage(ChatColor.GOLD + "You are no longer ignoring the filter.");
 				return;
-			}			
+			}
 			mcp.setFilter(false);
 			mcp.getPlayer().sendMessage(ChatColor.GOLD + "You are now ignoring the filter.");
 			return;

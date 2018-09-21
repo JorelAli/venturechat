@@ -7,7 +7,7 @@ public class JsonButton {
 	private String icon;
 	private String name;
 	private String action;
-	
+
 	public JsonButton(String name, String text, String command, String permission, String icon, String action) {
 		this.name = name;
 		this.text = text;
@@ -20,7 +20,7 @@ public class JsonButton {
 	public String getText() {
 		return this.text;
 	}
-	
+
 	public String getAction() {
 		return this.action;
 	}
@@ -36,11 +36,11 @@ public class JsonButton {
 	public String getIcon() {
 		return this.icon;
 	}
-	
+
 	public String getName() {
 		return this.name;
 	}
-	
+
 	public boolean hasPermission() {
 		return !permission.equalsIgnoreCase("venturechat.none");
 	}

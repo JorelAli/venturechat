@@ -8,7 +8,7 @@ import mineverse.Aust1n46.chat.channel.ChatChannelInfo;
 
 //This class used to check if the plugin PermissionsEx was available, this is now a legacy class.
 @SuppressWarnings("unused")
-public class MineversePermissions { 
+public class MineversePermissions {
 	private MineverseChat plugin;
 	private String name;
 	private ChatChannelInfo cc;

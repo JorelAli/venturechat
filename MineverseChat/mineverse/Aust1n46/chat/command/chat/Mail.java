@@ -54,7 +54,7 @@ public class Mail extends MineverseCommand {
 							tp.getPlayer().sendMessage(ChatColor.RED + mcp.getName() + ChatColor.GOLD + " has sent you mail. /mail read");
 						}
 						return;
-					} 
+					}
 					catch (Exception e) {
 						mcp.getPlayer().sendMessage(ChatColor.RED + "Invalid arguments, /mail send [player] [message]");
 						return;
@@ -79,7 +79,7 @@ public class Mail extends MineverseCommand {
 					return;
 				}
 				}
-			} 
+			}
 			catch (Exception e) {
 				mcp.getPlayer().sendMessage(ChatColor.RED + "Invalid arguments, /mail [send, read, sendall, clear]");
 			}

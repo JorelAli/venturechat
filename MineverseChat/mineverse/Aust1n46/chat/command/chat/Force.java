@@ -26,8 +26,8 @@ public class Force extends MineverseCommand {
 				return;
 			}
 			String forcemsg = "";
-			for(int x = 1; x < args.length; x++) 
-				if(args[x].length() > 0) 
+			for(int x = 1; x < args.length; x++)
+				if(args[x].length() > 0)
 					forcemsg += args[x] + " ";
 			sender.sendMessage(ChatColor.GOLD + "Forcing player " + ChatColor.RED + player.getName() + ChatColor.GOLD + " to run: " + ChatColor.RED + forcemsg);
 			player.getPlayer().chat(forcemsg);

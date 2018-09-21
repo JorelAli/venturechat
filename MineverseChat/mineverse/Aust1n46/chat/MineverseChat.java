@@ -625,7 +625,7 @@ public class MineverseChat extends JavaPlugin implements PluginMessageListener {
 				/*for(Method m : MinecraftReflection.getMinecraftClass("ChatBaseComponent").getDeclaredMethods()) {
 					System.out.println(m.getName());
 				}*/
-				
+
 				MineverseChat.messageMethod = MinecraftReflection.getMinecraftClass("ChatBaseComponent").getDeclaredMethod("getString", new Class[0]);
 				MineverseChat.messageMethod.setAccessible(true);
 			}

@@ -37,7 +37,7 @@ public class Kickchannelall extends MineverseCommand {
 				player.getPlayer().sendMessage(ChatColor.RED + "You need to be listening on at least one channel, setting you into the default channel.");
 				player.getPlayer().sendMessage("Channel Set: " + ChatColor.valueOf(cc.defaultColor.toUpperCase()) + "[" + cc.getDefaultChannel().getName() + "]");
 			}
-			else 
+			else
 				player.setModified(true);
 			return;
 		}

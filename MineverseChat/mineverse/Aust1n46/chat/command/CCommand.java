@@ -4,7 +4,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
-//This class is a subclass of Bukkit's command class that is used for registering customizable commands, such as aliases 
+//This class is a subclass of Bukkit's command class that is used for registering customizable commands, such as aliases
 //and channel aliases.
 public class CCommand extends Command {
 
