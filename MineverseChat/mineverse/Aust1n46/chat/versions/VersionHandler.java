@@ -40,27 +40,27 @@ public class VersionHandler {
 	public static boolean is1_7_10() {
 		return Bukkit.getVersion().contains("1.7") && Bukkit.getServer().getClass().getPackage().getName().contains("R4");
 	}
-	
+
 	public static boolean is1_8() {
 		return Bukkit.getVersion().contains("1.8");
 	}
-	
+
 	public static boolean is1_9() {
 		return Bukkit.getVersion().contains("1.9");
 	}
-	
+
 	public static boolean is1_10() {
 		return Bukkit.getVersion().contains("1.10");
 	}
-	
+
 	public static boolean is1_11() {
 		return Bukkit.getVersion().contains("1.11");
 	}
-	
+
 	public static boolean is1_12() {
 		return Bukkit.getVersion().contains("1.12");
 	}
-	
+
 	public static boolean isCauldron() {
 		return false;
 	}

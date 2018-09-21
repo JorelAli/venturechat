@@ -95,7 +95,7 @@ public class Party extends MineverseCommand {
 					mcp.getPlayer().sendMessage(ChatColor.RED + "You do not have permission for this command!");
 					return;
 				}
-				if(mcp.hasParty()) {				
+				if(mcp.hasParty()) {
 					mcp.getPlayer().sendMessage(ChatColor.GREEN + "Leaving " + MineverseChatAPI.getMineverseChatPlayer(mcp.getParty()).getName() + "'s party.");
 					mcp.setParty(null);
 					if(mcp.isHost()) {

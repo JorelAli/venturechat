@@ -7,7 +7,7 @@ import org.bukkit.configuration.ConfigurationSection;
 public class JsonButtonInfo {
 	private JsonButton[] jb;
 	private MineverseChat plugin = MineverseChat.getInstance();
-	
+
 	public JsonButtonInfo() {
 		String name;
 		String text;
@@ -29,11 +29,11 @@ public class JsonButtonInfo {
 			jb[x ++] = j;
 		}
 	}
-	
+
 	public JsonButton[] getJsonButtons() {
 		return this.jb;
 	}
-	
+
 	public JsonButton getJsonButton(String name) {
 		for(JsonButton j : this.jb) {
 			if(j.getName().equalsIgnoreCase(name))

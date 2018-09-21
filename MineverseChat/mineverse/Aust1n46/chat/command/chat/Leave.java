@@ -14,7 +14,7 @@ import mineverse.Aust1n46.chat.command.MineverseCommand;
 public class Leave extends MineverseCommand {
 	private MineverseChat plugin;
 	private ChatChannelInfo cc = MineverseChat.ccInfo;
-	
+
 	public Leave(String name) {
 		super(name);
 		this.plugin = MineverseChat.getInstance();
@@ -25,7 +25,7 @@ public class Leave extends MineverseCommand {
 		if(!(sender instanceof Player)) {
 			plugin.getServer().getConsoleSender().sendMessage(ChatColor.RED + "This command must be run by a player.");
 			return;
-		}		
+		}
 		MineverseChatPlayer mcp = MineverseChatAPI.getMineverseChatPlayer((Player) sender);
 		if(args.length > 0) {
 			ChatChannel channel = cc.getChannelInfo(args[0]);
@@ -35,7 +35,7 @@ public class Leave extends MineverseCommand {
 			}
 			mcp.removeListening(channel.getName());
 			String format = ChatColor.valueOf(channel.getColor().toUpperCase()) + "[" + channel.getName() + "]";
-			mcp.getPlayer().sendMessage("Leaving channel: " + format);				
+			mcp.getPlayer().sendMessage("Leaving channel: " + format);
 			if(mcp.getListening().size() == 0) {
 				mcp.addListening(cc.getDefaultChannel().getName());
 				mcp.setCurrentChannel(cc.getDefaultChannel());

@@ -35,7 +35,7 @@ public class Muteall extends MineverseCommand {
 			boolean bungee = false;
 			for(ChatChannel channel : cc.getChannelsInfo()) {
 				if(channel.isMutable()) {
-					player.addMute(channel.getName(), 0);				
+					player.addMute(channel.getName(), 0);
 					if(channel.getBungee()) {
 						bungee = true;
 					}
@@ -48,7 +48,7 @@ public class Muteall extends MineverseCommand {
 			if(player.isOnline()) {
 				player.getPlayer().sendMessage(ChatColor.RED + "You have just been muted in all channels.");
 			}
-			else 
+			else
 				player.setModified(true);
 			return;
 		}

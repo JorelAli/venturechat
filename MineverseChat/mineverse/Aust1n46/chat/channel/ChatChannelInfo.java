@@ -135,11 +135,11 @@ public class ChatChannelInfo {
 		}
 		return null;
 	}
-	
+
 	public ChatChannel getDefaultChannel() {
 		return this.defaultChannel;
 	}
-	
+
 	public boolean isChannel(String channel) {
 		return this.getChannelInfo(channel) != null;
 	}

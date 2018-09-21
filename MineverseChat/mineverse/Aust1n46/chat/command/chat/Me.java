@@ -24,12 +24,12 @@ public class Me extends MineverseCommand {
 		if(sender.hasPermission("venturechat.me")) {
 			if(args.length > 0) {
 				String msg = "";
-				for(int x = 0; x < args.length; x++) 
-					if(args[x].length() > 0) 
-						msg += " " + args[x];				
-				if(sender.hasPermission("venturechat.color")) 
+				for(int x = 0; x < args.length; x++)
+					if(args[x].length() > 0)
+						msg += " " + args[x];
+				if(sender.hasPermission("venturechat.color"))
 					msg = Format.FormatStringColor(msg);
-				if(sender.hasPermission("venturechat.format")) 
+				if(sender.hasPermission("venturechat.format"))
 					msg = Format.FormatString(msg);
 				String filtered = cc.FilterChat(msg);
 				if(sender instanceof Player && MineverseChatAPI.getMineverseChatPlayer((Player) sender).hasFilter()) {

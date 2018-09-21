@@ -29,8 +29,8 @@ public class Commandblock extends MineverseCommand {
 					return;
 				}
 				boolean match = false;
-				for(String cb : (List<String>) plugin.getConfig().getList("blockablecommands")) 
-					if(args[1].equals("/" + cb)) 
+				for(String cb : (List<String>) plugin.getConfig().getList("blockablecommands"))
+					if(args[1].equals("/" + cb))
 						match = true;
 				if(match || player.isBlockedCommand(args[1])) {
 					if(!player.isBlockedCommand(args[1])) {

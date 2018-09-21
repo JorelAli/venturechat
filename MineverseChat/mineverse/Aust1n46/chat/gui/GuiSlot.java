@@ -10,7 +10,7 @@ public class GuiSlot {
 	private String name;
 	private int durability;
 	private int slot;
-	
+
 	public GuiSlot(String name, String icon, int durability, String text, String permission, String command, int slot) {
 		this.name = name;
 		this.text = text;
@@ -27,7 +27,7 @@ public class GuiSlot {
 
 	public String getCommand() {
 		return this.command;
-	} 
+	}
 
 	public String getPermission() {
 		return this.permission;
@@ -36,19 +36,19 @@ public class GuiSlot {
 	public Material getIcon() {
 		return this.icon;
 	}
-	
+
 	public int getDurability() {
 		return this.durability;
 	}
-	
+
 	public String getName() {
 		return this.name;
 	}
-	
+
 	public int getSlot() {
 		return this.slot;
 	}
-	
+
 	public boolean hasPermission() {
 		return !permission.equalsIgnoreCase("venturechat.none");
 	}

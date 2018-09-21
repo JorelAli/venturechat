@@ -14,7 +14,7 @@ public class Localization { //unimplemented
 	private FileConfiguration localization;
 	private File localizationFile;
 	private MineverseChat plugin;
-	
+
 	public Localization() {
 		this.plugin = MineverseChat.getInstance();
 		localizationFile = new File(plugin.getDataFolder().getAbsolutePath(), "en_default.yml");
@@ -28,18 +28,18 @@ public class Localization { //unimplemented
 		}
 		localization = YamlConfiguration.loadConfiguration(localizationFile);
 	}
-	
-	public Localization(String name) {	
+
+	public Localization(String name) {
 		this.plugin = MineverseChat.getInstance();
 		localizationFile = new File(plugin.getDataFolder().getAbsolutePath(), name + ".yml");
 		if(!localizationFile.exists()) {
 			new Localization();
-			return;		
+			return;
 		}
 		localization = YamlConfiguration.loadConfiguration(localizationFile);
 	}
-	
-	public FileConfiguration getLocalizedMessages() {		
+
+	public FileConfiguration getLocalizedMessages() {
 		return localization;
 	}
 }

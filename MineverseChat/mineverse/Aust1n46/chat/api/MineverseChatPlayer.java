@@ -13,7 +13,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
-//Wrapper class for Player, this class stores additional information along with a players Player pointer.  
+//Wrapper class for Player, this class stores additional information along with a players Player pointer.
 //This data is read in from the PlayerData file and is also saved to that file when the server is closed.
 public class MineverseChatPlayer {
 	private UUID uuid;
@@ -87,51 +87,51 @@ public class MineverseChatPlayer {
 		this.messageToggle = messageToggle;
 		this.bungeeToggle = bungeeToggle;
 	}
-	
+
 	public boolean getBungeeToggle() {
 		return this.bungeeToggle;
 	}
-	
+
 	public void setBungeeToggle(boolean bungeeToggle) {
 		this.bungeeToggle = bungeeToggle;
 	}
-	
+
 	public boolean getMessageToggle() {
 		return this.messageToggle;
 	}
-	
+
 	public void setMessageToggle(boolean messageToggle) {
 		this.messageToggle = messageToggle;
 	}
-	
+
 	public boolean getButtons() {
 		return this.buttons;
 	}
-	
+
 	public void setButtons(boolean buttons) {
 		this.buttons = buttons;
 	}
-	
+
 	public boolean getRangedSpy() {
 		return this.rangedSpy;
 	}
-	
+
 	public void setRangedSpy(boolean rangedSpy) {
 		this.rangedSpy = rangedSpy;
 	}
-	
+
 	public int getEditHash() {
 		return this.editHash;
 	}
-	
+
 	public void setEditHash(int editHash) {
 		this.editHash = editHash;
 	}
-	
+
 	public boolean isEditing() {
 		return this.editing;
 	}
-	
+
 	public void setEditing(boolean editing) {
 		this.editing = editing;
 	}
@@ -143,7 +143,7 @@ public class MineverseChatPlayer {
 	public String getName() {
 		return this.name;
 	}
-	
+
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -433,15 +433,15 @@ public class MineverseChatPlayer {
 	public boolean hasCooldown(ChatChannel channel) {
 		return channel != null && this.cooldowns != null ? this.cooldowns.containsKey(channel) : false;
 	}
-	
+
 	public HashMap<ChatChannel, List<Integer>> getSpam() {
 		return this.spam;
 	}
-	
+
 	public boolean hasSpam(ChatChannel channel) {
 		return channel != null && this.spam != null ? this.spam.containsKey(channel) : false;
 	}
-	
+
 	public boolean addSpam(ChatChannel channel) {
 		if(channel != null) {
 			spam.put(channel, new ArrayList<Integer>());

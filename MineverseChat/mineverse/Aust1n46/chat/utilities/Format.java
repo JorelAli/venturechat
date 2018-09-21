@@ -14,9 +14,9 @@ import mineverse.Aust1n46.chat.api.MineverseChatPlayer;
 import mineverse.Aust1n46.chat.json.JsonFormat;
 
 //This class is where all formatting methods are stored.
-public class Format { 
+public class Format {
 	private static MineverseChat plugin = MineverseChat.getInstance();
-	
+
 	public static String convertToJson(ChatMessage lastChatMessage) {
 		MineverseChatPlayer icp = MineverseChatAPI.getMineverseChatPlayer(lastChatMessage.getSender());
 		JsonFormat format = MineverseChat.jfInfo.getJsonFormat(icp.getJsonFormat());
@@ -41,7 +41,7 @@ public class Format {
 			}
 			suffix = "venturechat_no_suffix_code";
 			prefix = "venturechat_no_prefix_code";
-		}	
+		}
 		String nickname = "";
 		if(icp.getPlayer() != null) {
 			nickname = FormatStringAll(icp.getPlayer().getDisplayName());
@@ -100,16 +100,16 @@ public class Format {
 		if(pluginManager.isPluginEnabled("PlaceholderAPI")) {
 			hoverMiddle = PlaceholderAPI.setBracketPlaceholders(icp.getPlayer(), hoverMiddle);
 		}*/
-		
+
 		//json += convertToJsonColors(f.substring(0, lower));
 		//json += "]},{\"text\":\"" + lowerText + "\",\"clickEvent\":{\"action\":\"" + clickLowerAction + "\",\"value\":\"" + clickLowerActionText + "\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"\",\"extra\":[" + convertToJsonColors(hoverLower) + "]}}}";
 		//json += ",{\"text\":\"\",\"extra\":[" + convertToJsonColors(getLastCode(lowerText) + f.substring(lower + lowerText.length(), middle)) + "]}";
 		//json += ",{\"text\":\"" + getLastCode(lowerText + f.substring(lower + lowerText.length(), middle)) + middleText + "\",\"clickEvent\":{\"action\":\"" + clickMiddleAction + "\",\"value\":\"" + clickMiddleActionText + "\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"\",\"extra\":[" + convertToJsonColors(hoverMiddle) + "]}}}";
-		//json += "," + convertToJsonColors(getLastCode(lowerText + f.substring(lower + lowerText.length(), middle)) + f.substring(middle + middleText.length(), f.length())) + "," + convertLinks(getLastCode(lowerText + f.substring(lower + lowerText.length(), middle) + f.substring(middle + middleText.length(), f.length())) + c);		
-		
+		//json += "," + convertToJsonColors(getLastCode(lowerText + f.substring(lower + lowerText.length(), middle)) + f.substring(middle + middleText.length(), f.length())) + "," + convertLinks(getLastCode(lowerText + f.substring(lower + lowerText.length(), middle) + f.substring(middle + middleText.length(), f.length())) + c);
+
 		json += convertPlaceholders(f, format, prefix, nickname, suffix, icp);
 		json += "]}";
-		json += "," + convertLinks(c);		
+		json += "," + convertLinks(c);
 		json += "]";
 		if(plugin.getConfig().getString("loglevel", "info").equals("debug")) {
 			System.out.println(json);
@@ -121,14 +121,14 @@ public class Format {
 		}
 		return json;
 	}
-	
+
 	private static String convertPlaceholders(String s, JsonFormat format, String prefix, String nickname, String suffix, MineverseChatPlayer icp) {
 		String remaining = s;
 		String temp = "";
 		int indexStart = -1;
 		int indexEnd = -1;
 		String placeholder = "";
-		String lastCode = "งf";
+		String lastCode = "ยงf";
 		do {
 			Pattern pattern = Pattern.compile("(" + prefix.replace("[", "\\[").replace("]", "\\]").replace("{", "\\{").replace("}", "\\}").replace("(", "\\(").replace(")", "\\)") + "|" + nickname.replace("[", "\\[").replace("]", "\\]").replace("{", "\\{").replace("}", "\\}").replace("(", "\\(").replace(")", "\\)") + "|" + suffix.replace("[", "\\[").replace("]", "\\]").replace("{", "\\{").replace("}", "\\}").replace("(", "\\(").replace(")", "\\)") + ")");
 			Matcher matcher = pattern.matcher(remaining);
@@ -156,7 +156,7 @@ public class Format {
 					}
 				}
 				if(placeholder.contains(suffix)) {
-					action = format.getClickSuffix(); 
+					action = format.getClickSuffix();
 					text = PlaceholderAPI.setBracketPlaceholders(icp.getPlayer(), format.getClickSuffixText());
 					for(String st : format.getHoverTextSuffix()) {
 						hover += Format.FormatStringAll(st) + "\n";
@@ -175,25 +175,25 @@ public class Format {
 		while(true);
 		return temp;
 	}
-	
+
 	private static String convertLinks(String s) {
 		String remaining = s;
 		String temp = "";
 		int indexLink = -1;
 		int indexLinkEnd = -1;
 		String link = "";
-		String lastCode = "งf";
+		String lastCode = "ยงf";
 		do {
-			Pattern pattern = Pattern.compile("([a-zA-Z0-9ง\\-:/]+\\.[a-zA-Z/0-9ง\\-:_#]+(\\.[a-zA-Z/0-9.ง\\-:#\\?\\+=_]+)?)");
+			Pattern pattern = Pattern.compile("([a-zA-Z0-9ยง\\-:/]+\\.[a-zA-Z/0-9ยง\\-:_#]+(\\.[a-zA-Z/0-9.ยง\\-:#\\?\\+=_]+)?)");
 			Matcher matcher = pattern.matcher(remaining);
 			if(matcher.find()) {
 				indexLink = matcher.start();
 				indexLinkEnd = matcher.end();
-				link = remaining.substring(indexLink, indexLinkEnd);	
+				link = remaining.substring(indexLink, indexLinkEnd);
 				temp += convertToJsonColors(lastCode + remaining.substring(0, indexLink)) + ",";
 				lastCode = getLastCode(lastCode + remaining.substring(0, indexLink));
 				String https = "";
-				if(ChatColor.stripColor(link).contains("https://")) 
+				if(ChatColor.stripColor(link).contains("https://"))
 					https = "s";
 				temp += convertToJsonColors(lastCode + link, ",\"underlined\":\"" + plugin.getConfig().getBoolean("underlineurls", true) + "\",\"clickEvent\":{\"action\":\"open_url\",\"value\":\"http" + https + "://" + ChatColor.stripColor(link.replace("http://", "").replace("https://", "")) + "\"},\"hoverEvent\":{\"action\":\"show_text\",\"value\":{\"text\":\"\",\"extra\":[" + convertToJsonColors(lastCode + link) + "]}}") + ",";
 				lastCode = getLastCode(lastCode + link);
@@ -207,21 +207,21 @@ public class Format {
 		while(true);
 		return temp;
 	}
-	
+
 	public static String getLastCode(String s) {
 		String ts = "";
 		char[] ch = s.toCharArray();
 		for(int a = 0; a < s.length() - 1; a ++) {
-			if(String.valueOf(ch[a + 1]).matches("[lkonmr0123456789abcdef]") && ch[a] == 'ง') {
+			if(String.valueOf(ch[a + 1]).matches("[lkonmr0123456789abcdef]") && ch[a] == 'ยง') {
 				ts += String.valueOf(ch[a]) + ch[a + 1];
 				if(String.valueOf(ch[a + 1]).matches("[0123456789abcdefr]")) {
 					ts = String.valueOf(ch[a]) + ch[a + 1];
 				}
-			}				
+			}
 		}
 		return ts;
 	}
-	
+
 	/*
 	private static String getLastFormat(String s) {
 		Stack<Character> temp = new Stack<Character>();
@@ -235,13 +235,13 @@ public class Format {
 		}
 		char[] ch = i.toCharArray();
 		for(int a = 0; a < i.length() - 1; a ++) {
-			if(String.valueOf(ch[a]).matches("[lkonmr]") && ch[a + 1] == 'ง') {
+			if(String.valueOf(ch[a]).matches("[lkonmr]") && ch[a + 1] == 'ยง') {
 				ts += String.valueOf(ch[a + 1]) + ch[a];
-			}				
+			}
 		}
 		return ts;
 	}
-	
+
 	private static String getLastColor(String s) {
 		Stack<Character> temp = new Stack<Character>();
 		for(char c : s.toCharArray()) {
@@ -253,17 +253,17 @@ public class Format {
 		}
 		char[] ch = i.toCharArray();
 		for(int a = 0; a < i.length() - 1; a ++) {
-			if(String.valueOf(ch[a]).matches("[0123456789abcdef]") && ch[a + 1] == 'ง') {
+			if(String.valueOf(ch[a]).matches("[0123456789abcdef]") && ch[a + 1] == 'ยง') {
 				return String.valueOf(ch[a + 1]) + ch[a];
-			}				
+			}
 		}
-		return "งf";
+		return "ยงf";
 	}*/
-	
+
 	public static String convertToJsonColors(String s) {
 		return convertToJsonColors(s, "");
 	}
-	
+
 	public static String convertToJsonColors(String s, String extensions) {
 		String remaining = s;
 		String temp = "";
@@ -283,10 +283,10 @@ public class Format {
 				break;
 			}
 			modifier = "";
-			indexColor = remaining.indexOf("ง");	
-			previousColor = color;			
+			indexColor = remaining.indexOf("ยง");
+			previousColor = color;
 			color = remaining.substring(1, indexColor + 2);
-			if(!color.matches("[0123456789abcdef]")) {				
+			if(!color.matches("[0123456789abcdef]")) {
 				switch(color) {
 					case "l": {
 						bold = true;
@@ -323,37 +323,37 @@ public class Format {
 				if(color.length() == 0)
 					color = "f";
 			}
-			else {				
+			else {
 				bold = false;
 				obfuscated = false;
 				italic = false;
 				underlined = false;
 				strikethrough = false;
-			}		
+			}
 			if(bold)
-				modifier += ",\"bold\":\"true\"";	
+				modifier += ",\"bold\":\"true\"";
 			if(obfuscated)
-				modifier += ",\"obfuscated\":\"true\"";	
+				modifier += ",\"obfuscated\":\"true\"";
 			if(italic)
-				modifier += ",\"italic\":\"true\"";		
+				modifier += ",\"italic\":\"true\"";
 			if(underlined)
-				modifier += ",\"underlined\":\"true\"";		
+				modifier += ",\"underlined\":\"true\"";
 			if(strikethrough)
-				modifier += ",\"strikethrough\":\"true\"";	
+				modifier += ",\"strikethrough\":\"true\"";
 			remaining = remaining.substring(2);
-			indexNextColor = remaining.indexOf("ง");
+			indexNextColor = remaining.indexOf("ยง");
 			if(indexNextColor == -1) {
 				indexNextColor = remaining.length();
 			}
 			temp += "{\"text\":\"" + remaining.substring(0, indexNextColor) + "\",\"color\":\"" + hexidecimalToJsonColor(color) + "\"" + modifier + extensions + "},";
 			remaining = remaining.substring(indexNextColor);
-		} 
-		while(remaining.length() > 1 && indexColor != -1); 
+		}
+		while(remaining.length() > 1 && indexColor != -1);
 		if(temp.length() > 1)
 			temp = temp.substring(0, temp.length() - 1);
 		return temp;
 	}
-	
+
 	private static String hexidecimalToJsonColor(String c) {
 		switch(c) {
 			case "0": return "black";
@@ -375,7 +375,7 @@ public class Format {
 		}
 		return "";
 	}
-	
+
 	protected static Pattern chatColorPattern = Pattern.compile("(?i)&([0-9A-F])");
 	protected static Pattern chatMagicPattern = Pattern.compile("(?i)&([K])");
 	protected static Pattern chatBoldPattern = Pattern.compile("(?i)&([L])");

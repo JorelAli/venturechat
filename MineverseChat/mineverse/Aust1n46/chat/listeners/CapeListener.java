@@ -40,7 +40,7 @@ public class CapeListener implements Listener {
 		}
 		MineverseChat.cape.remove();
 	}
-	
+
 	@EventHandler(priority = EventPriority.LOW)
 	public void onPlayerJoin(PlayerJoinEvent event) {
 		Player p = event.getPlayer();
@@ -151,7 +151,7 @@ public class CapeListener implements Listener {
 				MineverseChat.banner = this.getBanner();
 				event.setCancelled(true);
 				return;
-			}	
+			}
 		}
 	}
 

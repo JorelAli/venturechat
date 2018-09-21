@@ -18,7 +18,7 @@ public final class MineverseChatAPI {
 		}
 		return null;
 	}
-	
+
 	public static MineverseChatPlayer getMineverseChatPlayer(UUID uuid) {
 		for(MineverseChatPlayer mcp : MineverseChat.players) {
 			if(mcp.getUUID().toString().equals(uuid.toString())) {
@@ -27,7 +27,7 @@ public final class MineverseChatAPI {
 		}
 		return null;
 	}
-	
+
 	public static MineverseChatPlayer getMineverseChatPlayer(String name) {
 		for(MineverseChatPlayer mcp : MineverseChat.players) {
 			if(mcp.getName().equalsIgnoreCase(name)) {
@@ -36,7 +36,7 @@ public final class MineverseChatAPI {
 		}
 		return null;
 	}
-	
+
 	public static MineverseChatPlayer getOnlineMineverseChatPlayer(Player player) {
 		for(MineverseChatPlayer mcp : MineverseChat.onlinePlayers) {
 			if(mcp.getUUID().toString().equals(player.getUniqueId().toString())) {
@@ -45,7 +45,7 @@ public final class MineverseChatAPI {
 		}
 		return null;
 	}
-	
+
 	public static MineverseChatPlayer getOnlineMineverseChatPlayer(UUID uuid) {
 		for(MineverseChatPlayer mcp : MineverseChat.onlinePlayers) {
 			if(mcp.getUUID().toString().equals(uuid.toString())) {
@@ -54,7 +54,7 @@ public final class MineverseChatAPI {
 		}
 		return null;
 	}
-	
+
 	public static MineverseChatPlayer getOnlineMineverseChatPlayer(String name) {
 		for(MineverseChatPlayer mcp : MineverseChat.onlinePlayers) {
 			if(mcp.getName().equalsIgnoreCase(name)) {
@@ -63,7 +63,7 @@ public final class MineverseChatAPI {
 		}
 		return null;
 	}
-	
+
 	public static SynchronizedMineverseChatPlayer getSynchronizedMineverseChatPlayer(UUID uuid) {
 		for(SynchronizedMineverseChatPlayer smcp : MineverseChatBungee.players) {
 			if(smcp.getUUID().toString().equals(uuid.toString())) {

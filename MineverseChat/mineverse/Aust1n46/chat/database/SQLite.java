@@ -24,9 +24,9 @@ public class SQLite extends Database {
 
 	@Override
 	public Connection openConnection() throws SQLException, ClassNotFoundException {
-		if(checkConnection()) 
+		if(checkConnection())
 			return connection;
-		if(!plugin.getDataFolder().exists()) 
+		if(!plugin.getDataFolder().exists())
 			plugin.getDataFolder().mkdirs();
 		File file = new File(plugin.getDataFolder(), dbLocation);
 		if(!(file.exists())) {
@@ -63,7 +63,7 @@ public class SQLite extends Database {
 
 	@Override
 	public ResultSet querySQL(String query) throws SQLException, ClassNotFoundException {
-		if(checkConnection()) 
+		if(checkConnection())
 			openConnection();
 		Statement statement = connection.createStatement();
 		ResultSet result = statement.executeQuery(query);
@@ -72,7 +72,7 @@ public class SQLite extends Database {
 
 	@Override
 	public int updateSQL(String query) throws SQLException, ClassNotFoundException {
-		if(checkConnection()) 
+		if(checkConnection())
 			openConnection();
 		Statement statement = connection.createStatement();
 		int result = statement.executeUpdate(query);

@@ -81,23 +81,23 @@ public class VentureChatGui extends MineverseCommand {
 		mcp.getPlayer().sendMessage(ChatColor.RED + "You do not have permission for this command.");
 		return;
 	}
-	
+
 	private void openInventory(MineverseChatPlayer mcp, MineverseChatPlayer target, ChatChannel channel, int hash) {
 		Inventory inv = Bukkit.createInventory(null, this.getSlots(), "VentureChat: " + target.getName() + " GUI");
 		ItemStack close = new ItemStack(Material.BARRIER);
 		ItemMeta closeMeta = close.getItemMeta();
-		closeMeta.setDisplayName("§oClose GUI");
+		closeMeta.setDisplayName("Â§oClose GUI");
 		close.setItemMeta(closeMeta);
-		
+
 		ItemStack skull = new ItemStack(Material.SKULL_ITEM);
-		SkullMeta skullMeta = (SkullMeta) skull.getItemMeta(); 
-		skullMeta.setOwner(target.getName()); 
-		skullMeta.setDisplayName("§b" + target.getName());
+		SkullMeta skullMeta = (SkullMeta) skull.getItemMeta();
+		skullMeta.setOwner(target.getName());
+		skullMeta.setDisplayName("Â§b" + target.getName());
 		List<String> skullLore = new ArrayList<String>();
-		skullLore.add("§7Channel: " + ChatColor.valueOf(channel.getColor().toUpperCase()) + channel.getName());
-		skullLore.add("§7Hash: " + ChatColor.valueOf(channel.getColor().toUpperCase()) + hash);
+		skullLore.add("Â§7Channel: " + ChatColor.valueOf(channel.getColor().toUpperCase()) + channel.getName());
+		skullLore.add("Â§7Hash: " + ChatColor.valueOf(channel.getColor().toUpperCase()) + hash);
 		skullMeta.setLore(skullLore);
-		skull.setItemMeta(skullMeta); 
+		skull.setItemMeta(skullMeta);
 		skull.setDurability((short) 3);
 		inv.setItem(0, skull);
 
@@ -125,11 +125,11 @@ public class VentureChatGui extends MineverseCommand {
 		inv.setItem(8, close);
 		mcp.getPlayer().openInventory(inv);
 	}
-	
+
 	private boolean checkSlot(int slot) {
 		return slot == 0 || slot == 8;
 	}
-	
+
 	private int getSlots() {
 		int rows = plugin.getConfig().getInt("guirows", 1);
 		if(rows == 2)

@@ -38,15 +38,15 @@ public class Chatinfo extends MineverseCommand {
 				String blockedcommands = "";
 				if(args.length < 1) {
 					mcp.getPlayer().sendMessage(ChatColor.GOLD + "Player: " + ChatColor.GREEN + mcp.getName());
-					for(String c : mcp.getListening()) {		
+					for(String c : mcp.getListening()) {
 						ChatChannel channel = MineverseChat.ccInfo.getChannelInfo(c);
-						listen += ChatColor.valueOf(channel.getColor().toUpperCase()) + channel.getName() + " ";						
+						listen += ChatColor.valueOf(channel.getColor().toUpperCase()) + channel.getName() + " ";
 					}
 					for(String c : mcp.getMutes().keySet()) {
 						ChatChannel channel = MineverseChat.ccInfo.getChannelInfo(c);
-						mute += ChatColor.valueOf(channel.getColor().toUpperCase()) + channel.getName() + " ";						
+						mute += ChatColor.valueOf(channel.getColor().toUpperCase()) + channel.getName() + " ";
 					}
-					for(String bc : mcp.getBlockedCommands()) {						
+					for(String bc : mcp.getBlockedCommands()) {
 						blockedcommands += bc + " ";
 					}
 					mcp.getPlayer().sendMessage(ChatColor.GOLD + "Listening: " + listen);
@@ -105,15 +105,15 @@ public class Chatinfo extends MineverseCommand {
 					return;
 				}
 				sender.sendMessage(ChatColor.GOLD + "Player: " + ChatColor.GREEN + p.getName());
-				for(String c : p.getListening()) {		
+				for(String c : p.getListening()) {
 					ChatChannel channel = MineverseChat.ccInfo.getChannelInfo(c);
-					listen += ChatColor.valueOf(channel.getColor().toUpperCase()) + channel.getName() + " ";						
+					listen += ChatColor.valueOf(channel.getColor().toUpperCase()) + channel.getName() + " ";
 				}
 				for(String c : p.getMutes().keySet()) {
 					ChatChannel channel = MineverseChat.ccInfo.getChannelInfo(c);
-					mute += ChatColor.valueOf(channel.getColor().toUpperCase()) + channel.getName() + " ";						
+					mute += ChatColor.valueOf(channel.getColor().toUpperCase()) + channel.getName() + " ";
 				}
-				for(String bc : p.getBlockedCommands()) {						
+				for(String bc : p.getBlockedCommands()) {
 					blockedcommands += bc + " ";
 				}
 				sender.sendMessage(ChatColor.GOLD + "Listening: " + listen);

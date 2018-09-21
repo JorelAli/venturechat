@@ -25,12 +25,12 @@ public class Spy extends MineverseCommand {
 		}
 		MineverseChatPlayer mcp = MineverseChatAPI.getMineverseChatPlayer((Player) sender);
 		if(mcp.getPlayer().hasPermission("venturechat.spy")) {
-			if(!mcp.isSpy()) {				
+			if(!mcp.isSpy()) {
 				mcp.setSpy(true);
 				mcp.getPlayer().sendMessage(ChatColor.GOLD + "You are now spying.");
 				MineverseChat.getInstance().synchronize(mcp, true);
 				return;
-			}			
+			}
 			mcp.setSpy(false);
 			mcp.getPlayer().sendMessage(ChatColor.GOLD + "You are no longer spying.");
 			MineverseChat.getInstance().synchronize(mcp, true);

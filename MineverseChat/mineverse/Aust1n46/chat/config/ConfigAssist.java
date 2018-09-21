@@ -31,24 +31,24 @@ public class ConfigAssist extends JFrame { //unimplemented
     private Container pane = this.getContentPane();
     private JTextField filtersBox = new JTextField();
     private JTextField channelsBox = new JTextField();
-    
+
     private List<ConfigChannel> channels = new ArrayList<ConfigChannel>();
-    
+
     public static void main(String[] args) {
         new ConfigAssist();
     }
-    
+
     public ConfigAssist() {
         this.init();
     }
-       
-    public void init() {   
-        //buttonFilters.setBackground(new Color(255, 0, 0));      
-        buttonFilters.addActionListener(handlerFilters); 
+
+    public void init() {
+        //buttonFilters.setBackground(new Color(255, 0, 0));
+        buttonFilters.addActionListener(handlerFilters);
         buttonBack.addActionListener(handlerBack);
         buttonChannels.addActionListener(handlerChannels);
-        buttonExit.addActionListener(handlerExit);      
-        this.setTitle("Config");      
+        buttonExit.addActionListener(handlerExit);
+        this.setTitle("Config");
         setMenu();
         //pane.setBackground(new Color(255, 0, 0));
         this.setSize(500, 100);
@@ -57,36 +57,36 @@ public class ConfigAssist extends JFrame { //unimplemented
         ConfigChannel local = new ConfigChannel("Local");
         channels.add(global);
         channels.add(local);
-        setVisible(true);       
+        setVisible(true);
     }
-    
+
     private void setMenu() {
         pane.removeAll();
         pane.setLayout(new GridLayout(3,2));
         pane.add(blank);
         pane.add(buttonExit);
         pane.add(filtersMessage);
-        pane.add(buttonFilters); 
+        pane.add(buttonFilters);
         pane.add(channelsMessage);
         pane.add(buttonChannels);
         this.refresh();
     }
-    
+
     private void setFiltersMenu() {
         pane.removeAll();
-        pane.setLayout(new GridLayout(2,1));        
+        pane.setLayout(new GridLayout(2,1));
         pane.add(buttonBack);
-        pane.add(buttonExit);      
+        pane.add(buttonExit);
         pane.add(filtersMessage);
         pane.add(filtersBox);
         this.refresh();
     }
-    
+
     private void setChannelsMenu() {
         pane.removeAll();
-        pane.setLayout(new GridLayout(channels.size() + 1, 1));      
+        pane.setLayout(new GridLayout(channels.size() + 1, 1));
         pane.add(buttonBack);
-        pane.add(buttonExit);      
+        pane.add(buttonExit);
         pane.add(channelsMessage);
         String text = "";
         for(ConfigChannel channel : channels) {
@@ -96,47 +96,47 @@ public class ConfigAssist extends JFrame { //unimplemented
         pane.add(channelsBox);
         this.refresh();
     }
-    
+
     private void refresh() {
         pane.setVisible(false);
         pane.setVisible(true);
     }
-    
+
     private class FiltersButtonHandler implements ActionListener {
         @Override
-        public void actionPerformed(ActionEvent e) {                    
+        public void actionPerformed(ActionEvent e) {
            setFiltersMenu();
         }
     }
-    
+
     private class BackButtonHandler implements ActionListener {
         @Override
-        public void actionPerformed(ActionEvent e) {  
+        public void actionPerformed(ActionEvent e) {
             setMenu();
-        }        
+        }
     }
-    
+
     private class ChannelsButtonHandler implements ActionListener {
         @Override
-        public void actionPerformed(ActionEvent e) {  
+        public void actionPerformed(ActionEvent e) {
             setChannelsMenu();
-        }        
+        }
     }
-    
+
     private class ExitButtonHandler implements ActionListener {
         @Override
-        public void actionPerformed(ActionEvent e) {  
+        public void actionPerformed(ActionEvent e) {
             System.exit(0);
-        }   
+        }
     }
-    
+
     private class ConfigChannel {
         private String name;
-        
+
         public ConfigChannel(String name) {
             this.name = name;
         }
-        
+
         public String getName() {
             return this.name;
         }

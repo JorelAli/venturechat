@@ -29,7 +29,7 @@ public class MySQL extends Database {
 
 	@Override
 	public Connection openConnection() throws SQLException, ClassNotFoundException {
-		if(checkConnection()) 
+		if(checkConnection())
 			return connection;
 		Class.forName("com.mysql.jdbc.Driver");
 		connection = DriverManager.getConnection("jdbc:mysql://" + this.hostname + ":" + this.port + "/" + this.database + "?autoReconnect=true", this.user, this.password);
@@ -48,7 +48,7 @@ public class MySQL extends Database {
 
 	@Override
 	public boolean closeConnection() throws SQLException {
-		if(connection == null) 
+		if(connection == null)
 			return false;
 		connection.close();
 		return true;
@@ -56,7 +56,7 @@ public class MySQL extends Database {
 
 	@Override
 	public ResultSet querySQL(String query) throws SQLException, ClassNotFoundException {
-		if(checkConnection()) 
+		if(checkConnection())
 			openConnection();
 		Statement statement = connection.createStatement();
 		ResultSet result = statement.executeQuery(query);
@@ -65,7 +65,7 @@ public class MySQL extends Database {
 
 	@Override
 	public int updateSQL(String query) throws SQLException, ClassNotFoundException {
-		if(checkConnection()) 
+		if(checkConnection())
 			openConnection();
 		Statement statement = connection.createStatement();
 		int result = statement.executeUpdate(query);

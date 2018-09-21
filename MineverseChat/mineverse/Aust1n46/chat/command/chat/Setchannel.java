@@ -45,26 +45,26 @@ public class Setchannel extends MineverseCommand {
 						sender.sendMessage(ChatColor.RED + "This player does not have permission for channel: " + ChatColor.valueOf(channel.getColor().toUpperCase()) + channel.getName());
 						return;
 					}
-				}				
+				}
 				player.addListening(channel.getName());
 				player.setCurrentChannel(channel);
 				sender.sendMessage(ChatColor.GOLD + "Set player " + ChatColor.RED + player.getName() + ChatColor.GOLD + " into channel: " + ChatColor.valueOf(channel.getColor().toUpperCase()) + channel.getName());
-				if(player.hasConversation()) {					
+				if(player.hasConversation()) {
 					for(MineverseChatPlayer p : MineverseChat.onlinePlayers) {
 						if(p.isSpy()) {
 							p.getPlayer().sendMessage(player.getName() + " is no longer in a private conversation with " + MineverseChatAPI.getMineverseChatPlayer(player.getConversation()).getName() + ".");
 						}
 					}
-					if(player.isOnline()) 
+					if(player.isOnline())
 						player.getPlayer().sendMessage("You are no longer in private conversation with " + MineverseChatAPI.getMineverseChatPlayer(player.getConversation()).getName() + ".");
-					else 
+					else
 						player.setModified(true);
 					player.setConversation(null);
 				}
 				String format = ChatColor.valueOf(channel.getColor().toUpperCase()) + "[" + channel.getName() + "] " + ChatColor.valueOf(channel.getColor().toUpperCase());
-				if(player.isOnline()) 
+				if(player.isOnline())
 					player.getPlayer().sendMessage("Channel Set: " + format);
-				else 
+				else
 					player.setModified(true);
 				return;
 			}

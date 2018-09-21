@@ -7,7 +7,7 @@ import mineverse.Aust1n46.chat.MineverseChat;
 public class GuiSlotInfo {
 	private GuiSlot[] gs;
 	private MineverseChat plugin = MineverseChat.getInstance();
-	
+
 	public GuiSlotInfo() {
 		String name;
 		String text;
@@ -31,11 +31,11 @@ public class GuiSlotInfo {
 			gs[x ++] = g;
 		}
 	}
-	
+
 	public GuiSlot[] getGuiSlots() {
 		return this.gs;
 	}
-	
+
 	public GuiSlot getGuiSlot(String name) {
 		for(GuiSlot g : this.gs) {
 			if(g.getName().equalsIgnoreCase(name))

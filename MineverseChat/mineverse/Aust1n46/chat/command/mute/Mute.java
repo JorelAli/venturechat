@@ -39,9 +39,9 @@ public class Mute extends MineverseCommand {
 					if(channel.isMutable()) {
 						player.addMute(channel.getName(), 0);
 						sender.sendMessage(ChatColor.RED + "Muted player " + ChatColor.GOLD + player.getName() + ChatColor.RED + " in: " + ChatColor.valueOf(channel.getColor().toUpperCase()) + channel.getName());
-						if(player.isOnline()) 
+						if(player.isOnline())
 							player.getPlayer().sendMessage(ChatColor.RED + "You have just been muted in: " + ChatColor.valueOf(channel.getColor().toUpperCase()) + channel.getName());
-						else 
+						else
 							player.setModified(true);
 						if(channel.getBungee()) {
 							MineverseChat.getInstance().synchronize(player, true);
@@ -53,7 +53,7 @@ public class Mute extends MineverseCommand {
 				}
 				sender.sendMessage(ChatColor.RED + "Invalid channel: " + args[1]);
 				return;
-			}			
+			}
 			if(cc.isChannel(args[1])) {
 				ChatChannel channel = cc.getChannelInfo(args[1]);
 				if(player.isMuted(channel.getName())) {
@@ -67,14 +67,14 @@ public class Mute extends MineverseCommand {
 						//String date = formatter.format(currentDate.getTime());
 						//String[] datearray = date.split(":");
 						//int datetime = (Integer.parseInt(datearray[0]) * 1440) + (Integer.parseInt(datearray[1]) * 60) + (Integer.parseInt(datearray[2]));
-						
+
 						int datetime = (int) (System.currentTimeMillis() / 60000);
-						
+
 						int time = Integer.parseInt(args[2]);
 						if(time > 0) {
 							player.addMute(channel.getName(), datetime + time);
 							String keyword = "minutes";
-							if(time == 1) 
+							if(time == 1)
 								keyword = "minute";
 							sender.sendMessage(ChatColor.RED + "Muted player " + ChatColor.GOLD + player.getName() + ChatColor.RED + " in: " + ChatColor.valueOf(channel.getColor().toUpperCase()) + channel.getName() + ChatColor.RED + " for " + time + " " + keyword);
 							if(player.isOnline())

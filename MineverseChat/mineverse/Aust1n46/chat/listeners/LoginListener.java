@@ -102,7 +102,7 @@ public class LoginListener implements Listener {
 		}
 		if(plugin.getConfig().getBoolean("nickname-in-tablist", false)) {
 			mcp.getPlayer().setPlayerListName(Format.FormatStringAll(nick));
-		}	
+		}
 		for(ChatChannel ch : MineverseChat.ccInfo.getAutojoinList()) {
 			if(ch.hasPermission()) {
 				if(mcp.getPlayer().hasPermission(ch.getPermission())) {

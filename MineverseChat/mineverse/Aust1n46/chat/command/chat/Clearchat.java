@@ -27,6 +27,6 @@ public class Clearchat extends MineverseCommand {
 			return;
 		}
 		sender.sendMessage(ChatColor.RED + "You do not have permission for this command.");
-		return;	
+		return;
 	}
 }

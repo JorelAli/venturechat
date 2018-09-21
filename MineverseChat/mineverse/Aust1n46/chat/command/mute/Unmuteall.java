@@ -34,7 +34,7 @@ public class Unmuteall extends MineverseCommand {
 			}
 			boolean bungee = false;
 			for(ChatChannel channel : cc.getChannelsInfo()) {
-				player.removeMute(channel.getName());				
+				player.removeMute(channel.getName());
 				if(channel.getBungee()) {
 					bungee = true;
 				}
@@ -46,7 +46,7 @@ public class Unmuteall extends MineverseCommand {
 			if(player.isOnline()) {
 				player.getPlayer().sendMessage(ChatColor.RED + "You have just been unmuted in all channels.");
 			}
-			else 
+			else
 				player.setModified(true);
 			return;
 		}

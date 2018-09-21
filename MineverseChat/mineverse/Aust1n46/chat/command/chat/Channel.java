@@ -18,9 +18,9 @@ import mineverse.Aust1n46.chat.command.MineverseCommand;
 public class Channel extends MineverseCommand implements Listener {
 	private MineverseChat plugin;
 	private ChatChannelInfo cc = MineverseChat.ccInfo;
-	
+
 	public Channel() {}
-	
+
 	public Channel(String name) {
 		super(name);
 		this.plugin = MineverseChat.getInstance();
@@ -31,34 +31,34 @@ public class Channel extends MineverseCommand implements Listener {
 		if(!(sender instanceof Player)) {
 			plugin.getServer().getConsoleSender().sendMessage(ChatColor.RED + "This command must be run by a player.");
 			return;
-		}		
-		MineverseChatPlayer mcp = MineverseChatAPI.getMineverseChatPlayer((Player) sender);	
+		}
+		MineverseChatPlayer mcp = MineverseChatAPI.getMineverseChatPlayer((Player) sender);
 		if(args.length > 0) {
 			if(!cc.isChannel(args[0])) {
 				mcp.getPlayer().sendMessage(ChatColor.RED + "Invalid channel: " + args[0]);
 				return;
-			}			
-			ChatChannel channel = cc.getChannelInfo(args[0]);						
-			plugin.getServer().getPluginManager().callEvent(new ChannelJoinEvent(mcp.getPlayer(), channel, "Channel Set: " + ChatColor.valueOf(channel.getColor().toUpperCase()) + "[" + channel.getName() + "]"));			
+			}
+			ChatChannel channel = cc.getChannelInfo(args[0]);
+			plugin.getServer().getPluginManager().callEvent(new ChannelJoinEvent(mcp.getPlayer(), channel, "Channel Set: " + ChatColor.valueOf(channel.getColor().toUpperCase()) + "[" + channel.getName() + "]"));
 			return;
 		}
 		mcp.getPlayer().sendMessage(ChatColor.RED + "Invalid command: /" + command + " [channel]");
 		return;
 	}
-	
+
 	@EventHandler(priority = EventPriority.MONITOR)
 	public void onChannelJoin(ChannelJoinEvent event) {
-		if(event.isCancelled()) 
-			return;		
+		if(event.isCancelled())
+			return;
 		ChatChannel channel = event.getChannel();
-		MineverseChatPlayer mcp = MineverseChatAPI.getMineverseChatPlayer(event.getPlayer());		
+		MineverseChatPlayer mcp = MineverseChatAPI.getMineverseChatPlayer(event.getPlayer());
 		if(channel.hasPermission()) {
 			if(!mcp.getPlayer().hasPermission(channel.getPermission())) {
 				mcp.removeListening(channel.getName());
 				mcp.getPlayer().sendMessage(ChatColor.RED + "You do not have permission for this channel.");
 				return;
 			}
-		}		
+		}
 		if(mcp.hasConversation()) {
 			for(MineverseChatPlayer p : MineverseChat.onlinePlayers) {
 				if(p.isSpy()) {
@@ -68,7 +68,7 @@ public class Channel extends MineverseCommand implements Listener {
 			mcp.getPlayer().sendMessage("You are no longer in private conversation with " + MineverseChatAPI.getMineverseChatPlayer(mcp.getConversation()).getName() + ".");
 			mcp.setConversation(null);
 		}
-		mcp.addListening(channel.getName());		
+		mcp.addListening(channel.getName());
 		mcp.setCurrentChannel(channel);
 		mcp.getPlayer().sendMessage(event.getMessage());
 		if(channel.getBungee()) {

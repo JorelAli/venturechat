@@ -142,7 +142,7 @@ public class ChatChannel {
 	public boolean isIRC() {
 		return irc;
 	}
-	
+
 	@Override
 	public boolean equals(Object channel) {
 		return channel instanceof ChatChannel && this.name.equals(((ChatChannel) channel).getName());

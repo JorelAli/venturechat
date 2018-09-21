@@ -15,7 +15,7 @@ public class JsonFormat {
 	private String clickSuffixText;
 	private int priority;
 	private String name;
-	
+
 	public JsonFormat(String name, int priority, List<String> hoverTextName, String clickName, String clickNameText, List<String> hoverTextPrefix, String clickPrefix, String clickPrefixText, String clickSuffix, String clickSuffixText, List<String> hoverTextSuffix) {
 		this.name = name;
 		this.priority = priority;
@@ -29,47 +29,47 @@ public class JsonFormat {
 		this.clickSuffixText = clickSuffixText;
 		this.hoverTextSuffix = hoverTextSuffix;
 	}
-	
+
 	public String getName() {
 		return this.name;
 	}
-	
+
 	public String getClickName() {
 		return this.clickName;
 	}
-	
+
 	public String getClickNameText() {
 		return this.clickNameText;
 	}
-	
+
 	public String getClickSuffix() {
 		return this.clickSuffix;
 	}
-	
+
 	public String getClickSuffixText() {
 		return this.clickSuffixText;
 	}
-	
+
 	public int getPriority() {
 		return this.priority;
 	}
-	
+
 	public List<String> getHoverTextName() {
 		return this.hoverTextName;
 	}
-	
+
 	public List<String> getHoverTextPrefix() {
 		return this.hoverTextPrefix;
 	}
-	
+
 	public List<String> getHoverTextSuffix() {
 		return this.hoverTextSuffix;
 	}
-	
+
 	public String getClickPrefix() {
 		return this.clickPrefix;
 	}
-	
+
 	public String getClickPrefixText() {
 		return this.clickPrefixText;
 	}

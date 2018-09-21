@@ -29,7 +29,7 @@ public class Buttons extends MineverseCommand {
 				mcp.setButtons(false);
 				mcp.getPlayer().sendMessage(ChatColor.GOLD + "You are no longer ignoring json buttons.");
 				return;
-			}			
+			}
 			mcp.setButtons(true);
 			mcp.getPlayer().sendMessage(ChatColor.GOLD + "You are now ignoring json buttons.");
 			return;

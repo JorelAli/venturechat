@@ -26,7 +26,7 @@ public class ChatMessage {
 		this.message = message;
 		this.hash = hash;
 	}
-	
+
 	public ChatMessage(String sender, String message, int hash, String format, String chat, String channel) {
 		this.sender = sender;
 		this.message = message;
@@ -35,7 +35,7 @@ public class ChatMessage {
 		this.channel = channel;
 		this.hash = hash;
 	}
-	
+
 	public ChatMessage(WrappedChatComponent originalComponent, WrappedChatComponent component, String sender, String message, int hash) {
 		this.originalComponent = originalComponent;
 		this.component = component;
@@ -47,7 +47,7 @@ public class ChatMessage {
 	public WrappedChatComponent getComponent() {
 		return this.component;
 	}
-	
+
 	public WrappedChatComponent getOriginalComponent() {
 		return this.originalComponent;
 	}
@@ -71,15 +71,15 @@ public class ChatMessage {
 	public void setHash(int hash) {
 		this.hash = hash;
 	}
-	
+
 	public String getFormat() {
 		return this.format;
 	}
-	
+
 	public String getChat() {
 		return this.chat;
 	}
-	
+
 	public String getChannel() {
 		return this.channel;
 	}
