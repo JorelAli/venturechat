@@ -35,7 +35,6 @@ import mineverse.Aust1n46.chat.irc.Bot;
 import mineverse.Aust1n46.chat.irc.command.IRCCommandInfo;
 //import mineverse.Aust1n46.chat.json.JsonButtonInfo;
 import mineverse.Aust1n46.chat.json.JsonFormatInfo;
-import mineverse.Aust1n46.chat.listeners.CapeListener;
 import mineverse.Aust1n46.chat.listeners.CommandListener;
 import mineverse.Aust1n46.chat.listeners.LoginListener;
 import mineverse.Aust1n46.chat.listeners.ChatListener;
@@ -127,7 +126,6 @@ public class MineverseChat extends JavaPlugin implements PluginMessageListener {
 	private SignListener signListener;
 	private CommandListener commandListener;
 	private PacketListener packetListener;
-	private CapeListener capeListener;
 	private Channel channelListener;
 	public static String[] playerlist;
 	public static String playerlist_server;
@@ -166,9 +164,6 @@ public class MineverseChat extends JavaPlugin implements PluginMessageListener {
 	public static Set<MineverseChatPlayer> players = new HashSet<MineverseChatPlayer>();
 	public static Set<MineverseChatPlayer> onlinePlayers = new HashSet<MineverseChatPlayer>();
 	public static HashMap<String, String> networkPlayers = new HashMap<String, String>();
-	public static ArmorStand cape;
-	public static ItemStack banner;
-	public static boolean capeToggle = false;
 	private boolean firstRun = true;
 
 	// Vault --------------------------------
@@ -400,10 +395,6 @@ public class MineverseChat extends JavaPlugin implements PluginMessageListener {
 		pluginManager.registerEvents(chatListener, this);
 		pluginManager.registerEvents(signListener, this);
 		pluginManager.registerEvents(commandListener, this);
-		if(!VersionHandler.is1_7_10() && !VersionHandler.is1_7_9() && !VersionHandler.is1_7_2()) {
-			capeListener = new CapeListener();
-			pluginManager.registerEvents(capeListener, this);
-		}
 		loginListener = new LoginListener(this, ccInfo);
 		pluginManager.registerEvents(loginListener, this);
 		this.registerPacketListeners();
@@ -684,9 +675,6 @@ public class MineverseChat extends JavaPlugin implements PluginMessageListener {
 		Bukkit.getConsoleSender().sendMessage(Format.FormatStringAll("&8[&eVentureChat&8]&e - Disabled Successfully"));
 		if(irc) {
 			bot.terminate();
-		}
-		if(MineverseChat.cape != null) {
-			MineverseChat.cape.remove();
 		}
 	}
 
