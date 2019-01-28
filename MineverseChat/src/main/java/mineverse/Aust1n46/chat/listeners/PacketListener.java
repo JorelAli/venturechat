@@ -26,6 +26,7 @@ import mineverse.Aust1n46.chat.MineverseChat;
 import mineverse.Aust1n46.chat.api.MineverseChatAPI;
 import mineverse.Aust1n46.chat.api.MineverseChatPlayer;
 import mineverse.Aust1n46.chat.utilities.Format;
+import mineverse.Aust1n46.chat.utilities.ItemToJson;
 import mineverse.Aust1n46.chat.versions.VersionHandler;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.TextComponent;
@@ -186,7 +187,8 @@ public class PacketListener extends PacketAdapter {
 		}
 		
 		//Requires placeholder API... for some reason? (I never moved the stuff over to here... I should probably do that)
-		String insertJson = PlaceholderAPI.setBracketPlaceholders(player, "{currentitem_item}");
+		//String insertJson = PlaceholderAPI.setBracketPlaceholders(player, "{currentitem_item}");
+		String insertJson = ItemToJson.playerItemToJSONString(player);
 		JsonArray insertArray = new Gson().fromJson(insertJson, JsonArray.class);
 		JsonElement reconstruction = insertArray.get(1);
 		
