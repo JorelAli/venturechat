@@ -28,18 +28,24 @@ import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import net.milkbowl.vault.chat.Chat;
-import net.milkbowl.vault.permission.Permission;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.Sound;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandMap;
+import org.bukkit.command.SimpleCommandMap;
+import org.bukkit.entity.Player;
+import org.bukkit.plugin.PluginManager;
+import org.bukkit.plugin.RegisteredServiceProvider;
+import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.plugin.messaging.PluginMessageListener;
+import org.bukkit.scheduler.BukkitScheduler;
 
-import mineverse.Aust1n46.chat.irc.Bot;
-import mineverse.Aust1n46.chat.irc.command.IRCCommandInfo;
-//import mineverse.Aust1n46.chat.json.JsonButtonInfo;
-import mineverse.Aust1n46.chat.json.JsonFormatInfo;
-import mineverse.Aust1n46.chat.listeners.CommandListener;
-import mineverse.Aust1n46.chat.listeners.LoginListener;
-import mineverse.Aust1n46.chat.listeners.ChatListener;
-import mineverse.Aust1n46.chat.listeners.PacketListener;
-import mineverse.Aust1n46.chat.listeners.SignListener;
+import com.comphenix.protocol.ProtocolLibrary;
+import com.comphenix.protocol.ProtocolManager;
+import com.comphenix.protocol.utility.MinecraftReflection;
+
+import me.clip.placeholderapi.PlaceholderAPI;
 //import mineverse.Aust1n46.chat.alias.Alias;
 import mineverse.Aust1n46.chat.alias.AliasInfo;
 import mineverse.Aust1n46.chat.api.MineverseChatAPI;
@@ -94,30 +100,19 @@ import mineverse.Aust1n46.chat.command.mute.Unmuteall;
 import mineverse.Aust1n46.chat.database.MySQL;
 import mineverse.Aust1n46.chat.database.PlayerData;
 import mineverse.Aust1n46.chat.gui.GuiSlotInfo;
+import mineverse.Aust1n46.chat.irc.Bot;
+import mineverse.Aust1n46.chat.irc.command.IRCCommandInfo;
+//import mineverse.Aust1n46.chat.json.JsonButtonInfo;
+import mineverse.Aust1n46.chat.json.JsonFormatInfo;
+import mineverse.Aust1n46.chat.listeners.ChatListener;
+import mineverse.Aust1n46.chat.listeners.CommandListener;
+import mineverse.Aust1n46.chat.listeners.LoginListener;
+import mineverse.Aust1n46.chat.listeners.PacketListener;
+import mineverse.Aust1n46.chat.listeners.SignListener;
 import mineverse.Aust1n46.chat.utilities.Format;
-import mineverse.Aust1n46.chat.versions.V1_8;
 import mineverse.Aust1n46.chat.versions.VersionHandler;
-
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandMap;
-import org.bukkit.command.SimpleCommandMap;
-import org.bukkit.entity.ArmorStand;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.plugin.PluginManager;
-import org.bukkit.plugin.RegisteredServiceProvider;
-import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.plugin.messaging.PluginMessageListener;
-import org.bukkit.scheduler.BukkitScheduler;
-import org.bukkit.Sound;
-
-import com.comphenix.protocol.ProtocolLibrary;
-import com.comphenix.protocol.ProtocolManager;
-import com.comphenix.protocol.utility.MinecraftReflection;
-
-import me.clip.placeholderapi.PlaceholderAPI;
+import net.milkbowl.vault.chat.Chat;
+import net.milkbowl.vault.permission.Permission;
 
 public class MineverseChat extends JavaPlugin implements PluginMessageListener {
 	// Listeners --------------------------------
@@ -159,7 +154,7 @@ public class MineverseChat extends JavaPlugin implements PluginMessageListener {
 	public static IRCCommandInfo ircInfo;
 	public static GuiSlotInfo gsInfo;
 	public boolean quickchat = true;
-	private static final Logger log = Logger.getLogger("Minecraft");
+	private static Logger log = Logger.getLogger("Minecraft"); //The worst practice...
 	private static MineverseChat plugin;
 	public static Set<MineverseChatPlayer> players = new HashSet<MineverseChatPlayer>();
 	public static Set<MineverseChatPlayer> onlinePlayers = new HashSet<MineverseChatPlayer>();
@@ -186,6 +181,7 @@ public class MineverseChat extends JavaPlugin implements PluginMessageListener {
 	@Override
 	public void onEnable() {
 		plugin = this;
+		log = this.getLogger();
 		try {
 			Bukkit.getConsoleSender().sendMessage(Format.FormatStringAll("&8[&eVentureChat&8]&e - Initializing..."));
 			if(!getDataFolder().exists()) {
@@ -405,14 +401,6 @@ public class MineverseChat extends JavaPlugin implements PluginMessageListener {
 			e.printStackTrace();
 		}
 		Bukkit.getConsoleSender().sendMessage(Format.FormatStringAll("&8[&eVentureChat&8]&e - Attaching to Executors"));
-		try {
-			// if(VersionHandler.is1_7_9()) cmap = V1_7_9.v1_7_9();
-			// if(VersionHandler.is1_7_10()) cmap = V1_7_10.v1_7_10();
-			if(VersionHandler.is1_8()) cmap = V1_8.v1_8();
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-		}
 		this.quickchat = false;
 		if(cmap == null) {
 			this.quickchat = false;

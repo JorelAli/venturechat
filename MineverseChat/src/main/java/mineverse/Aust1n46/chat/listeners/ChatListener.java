@@ -708,6 +708,8 @@ public class ChatListener implements Listener {
 					e.printStackTrace();
 				}
 			}
+			
+			//TODO: Note that this method exists... I believe some fancy stuff deserves to go here for bungee support
 			if(bungee && !event.isCancelled()) {
 				message = String.format(Channelformat + event.getMessage(), new Object[] { event.getPlayer().getDisplayName(), event.getMessage() }).replaceAll("(§([a-z0-9]))", "");
 				format = String.format(Channelformat, new Object[] { event.getPlayer().getDisplayName() });

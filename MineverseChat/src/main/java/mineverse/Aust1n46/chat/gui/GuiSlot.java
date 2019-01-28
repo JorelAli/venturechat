@@ -8,7 +8,7 @@ public class GuiSlot {
 	private String permission;
 	private Material icon;
 	private String name;
-	private int durability;
+	//private int durability;
 	private int slot;
 
 	public GuiSlot(String name, String icon, int durability, String text, String permission, String command, int slot) {
@@ -17,7 +17,7 @@ public class GuiSlot {
 		this.command = command;
 		this.permission = "venturechat." + permission;
 		this.icon = Material.valueOf(icon.toUpperCase());
-		this.durability = durability;
+		//this.durability = durability;
 		this.slot = slot;
 	}
 
@@ -37,9 +37,9 @@ public class GuiSlot {
 		return this.icon;
 	}
 
-	public int getDurability() {
-		return this.durability;
-	}
+//	public int getDurability() {
+//		return this.durability;
+//	}
 
 	public String getName() {
 		return this.name;

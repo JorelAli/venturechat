@@ -89,16 +89,15 @@ public class VentureChatGui extends MineverseCommand {
 		closeMeta.setDisplayName("§oClose GUI");
 		close.setItemMeta(closeMeta);
 
-		ItemStack skull = new ItemStack(Material.SKULL_ITEM);
+		ItemStack skull = new ItemStack(Material.PLAYER_HEAD);
 		SkullMeta skullMeta = (SkullMeta) skull.getItemMeta();
-		skullMeta.setOwner(target.getName());
+		skullMeta.setOwningPlayer(target.getPlayer());
 		skullMeta.setDisplayName("§b" + target.getName());
 		List<String> skullLore = new ArrayList<String>();
 		skullLore.add("§7Channel: " + ChatColor.valueOf(channel.getColor().toUpperCase()) + channel.getName());
 		skullLore.add("§7Hash: " + ChatColor.valueOf(channel.getColor().toUpperCase()) + hash);
 		skullMeta.setLore(skullLore);
 		skull.setItemMeta(skullMeta);
-		skull.setDurability((short) 3);
 		inv.setItem(0, skull);
 
 		for(GuiSlot g : MineverseChat.gsInfo.getGuiSlots()) {
@@ -108,7 +107,7 @@ public class VentureChatGui extends MineverseCommand {
 					continue;
 				}
 				ItemStack gStack = new ItemStack(g.getIcon());
-				gStack.setDurability((short) g.getDurability());
+				//gStack.setDurability((short) g.getDurability());
 				ItemMeta gMeta = gStack.getItemMeta();
 				String displayName = g.getText().replace("{player_name}", target.getName()).replace("{channel}", channel.getName()).replace("{hash}", hash + "");
 				if(target.isOnline()) {

@@ -278,7 +278,7 @@ public class CommandListener implements CommandExecutor, Listener {
 			mcp.getPlayer().closeInventory();
 		}
 		for(GuiSlot g : MineverseChat.gsInfo.getGuiSlots()) {
-			if(g.getIcon() == item.getType() && g.getDurability() == item.getDurability() && g.getSlot() == e.getSlot()) {
+			if(g.getIcon() == item.getType() && /*g.getDurability() == item.getDurability() &&*/ g.getSlot() == e.getSlot()) {
 				String command = g.getCommand().replace("{channel}", channel.getName()).replace("{hash}", hash + "").replace("{player_name}", target.getName());
 				if(target.isOnline()) {
 					command = PlaceholderAPI.setBracketPlaceholders(target.getPlayer(), command);
